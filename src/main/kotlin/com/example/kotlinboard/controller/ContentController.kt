@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestParam
 
 
 @Controller
@@ -22,6 +24,12 @@ class ContentController(private val contentService: ContentService) {
     @PostMapping("/content")
     fun saveCount(@ModelAttribute text: Content): String {
         contentService.saveCount(text)
+        return "redirect:/content"
+    }
+
+    @PostMapping("/delete")
+    fun deleteContents(@RequestParam id: Long): String {
+        contentService.deleteContents(id)
         return "redirect:/content"
     }
 }

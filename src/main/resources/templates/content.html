@@ -14,7 +14,16 @@
 <h2>Contents</h2>
 <ul>
     <li th:each="content : ${contents}">
-        <span th:text="${content.text}">Content text</span>
+        <td th:text="${content.id}"></td>
+        <td th:text="${content.text}"></td>
+        <td>
+            <form action="delete" method="post">
+                <input type="hidden" name="id" th:value="${content.id}">
+                <input type="hidden" name="content" th:value="${content.text}">
+                <input type="submit" value="삭제">
+                <a th:href="@{/delete/{idValue}(idValue=${content.id})}"></a>
+            </form>
+        </td>
     </li>
 </ul>
 </body>

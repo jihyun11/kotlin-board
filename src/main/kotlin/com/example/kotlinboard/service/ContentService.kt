@@ -13,4 +13,8 @@ class ContentService(private val contentRepository: ContentRepository) {
     fun getAllContents(): List<Content> {
         return contentRepository.findAll()
     }
+
+    fun deleteContents(id: Long) {
+        return contentRepository.deleteById(id)
+    }
 }
