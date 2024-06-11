@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Board</title>
+</head>
+<body>
+<h1>Content Board</h1>
+<form action="/content" method="post">
+    <textarea name="text" placeholder="text me"></textarea>
+    <button type="submit">Save</button>
+</form>
+<h2>Contents</h2>
+<ul>
+    <li th:each="content : ${contents}">
+        <span th:text="${content.text}">Content text</span>
+    </li>
+</ul>
+</body>
+</html>
