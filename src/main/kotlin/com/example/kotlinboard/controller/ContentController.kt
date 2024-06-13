@@ -32,4 +32,19 @@ class ContentController(private val contentService: ContentService) {
         contentService.deleteContents(id)
         return "redirect:/content"
     }
+
+    @GetMapping("/update/{idValue}")
+    fun updateView(@PathVariable("idValue") idValue: Long, model: Model): String {
+        var content = contentService.updateView(idValue)
+        model.addAttribute("content", content)
+        return "update"
+    }
+
+    @PostMapping("/update")
+    fun updateContents(@RequestParam id: Long, @RequestParam text: String): String {
+        contentService.updateContents(id, text)
+        return "redirect:/content"
+    }
+
+
 }

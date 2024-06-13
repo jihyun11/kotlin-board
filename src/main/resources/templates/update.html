@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Edit Content</h2>
+<!--<label name="id" th:text="${idValue}"></label>-->
+<!--<textarea name="text" th:text="${content.text}" placeholder="text me"></textarea>-->
+<!--<form action="/update/{idValue}" method="post">-->
+<!--    <input type="hidden" name="idValue" th:value="${content.id}">-->
+<!--    <input type="hidden" name="text" th:value="${content.text}">-->
+<!--    <input type="submit" value="수정">-->
+<!--</form>-->
+<!--위쪽처럼 aciton 링크를 다르게 하면 왜 안되는지?-->
+<form action="/update" method="post">
+    <input type="hidden" name="id" th:value="${content.id}">
+    <label for="text">Text:</label>
+    <input type="text" id="text" name="text" th:value="${content.text}">
+    <input type="submit" value="수정">
+</form>
+</body>
+</html>
