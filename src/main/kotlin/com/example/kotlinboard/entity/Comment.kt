@@ -6,12 +6,13 @@ import jakarta.persistence.*
 @Table(name = "comments_table")
 data class Comment(
     @Id
+    @Column(name = "comment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val commentId: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "content_id")
-    var cid: Content? = null,
+    var content: Content,
 
     @Column(name = "writer")
     val writer: String,

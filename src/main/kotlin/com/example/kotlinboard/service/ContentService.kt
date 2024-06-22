@@ -3,6 +3,7 @@ package com.example.kotlinboard.service
 import com.example.kotlinboard.entity.Content
 import com.example.kotlinboard.repository.ContentRepository
 import org.springframework.stereotype.Service
+import java.sql.DriverManager.println
 import java.util.*
 
 @Service
@@ -28,5 +29,14 @@ class ContentService(private val contentRepository: ContentRepository) {
     fun updateContents(id: Long, newText: String): Content {
         val content = Content(id, newText)
         return contentRepository.save(content)
+    }
+
+    fun findContent(contentId: Long): Content? {
+        val get = contentRepository.findById(contentId).get()
+        val comments = get.comments
+        if (comments != null) {
+            println("comments.size" + comments.size)
+        }
+        return get
     }
 }

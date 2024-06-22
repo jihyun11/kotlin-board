@@ -8,12 +8,13 @@ import java.util.Collections.emptyList
 @Table(name = "contents_table")
 data class Content(
     @Id
+    @Column(name = "content_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val contentId: Long? = null,
 
     @Column(name = "text")
     val text: String,
 
-//    @OneToMany(mappedBy = "content", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-//    val comments: MutableList<Comment>? = null
+    @OneToMany(mappedBy = "content", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    val comments: MutableList<Comment>? = null
 )
