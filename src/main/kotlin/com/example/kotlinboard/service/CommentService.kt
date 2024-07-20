@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import java.util.*
 
+@Transactional
 @Service
 class CommentService(
     private val commentRepository: CommentRepository,
@@ -22,8 +23,6 @@ class CommentService(
         )
         return commentRepository.save(comment)
     }
-
-    @Transactional
     fun findComment(commentId: Long): Comment {
         val findById = commentRepository.findById(commentId).get()
         findById.content

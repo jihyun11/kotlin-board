@@ -1,8 +1,6 @@
 package com.example.kotlinboard.entity
 
 import jakarta.persistence.*
-import java.util.Collections.emptyList
-
 
 @Entity
 @Table(name = "contents_table")

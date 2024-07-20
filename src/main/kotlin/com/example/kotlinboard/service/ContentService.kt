@@ -2,10 +2,12 @@ package com.example.kotlinboard.service
 
 import com.example.kotlinboard.entity.Content
 import com.example.kotlinboard.repository.ContentRepository
+import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import java.sql.DriverManager.println
 import java.util.*
 
+@Transactional
 @Service
 class ContentService(private val contentRepository: ContentRepository) {
     fun saveCount(content: Content): Content {
